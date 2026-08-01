@@ -1,0 +1,37 @@
+# Entorno y dependencias locales
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Archivos temporales y logs
+*.log
+*.tmp
+*.swp
+*.swo
+.DS_Store
+
+# Datos generados localmente
+backend/app/data/*.json
+backend/app/data/*.bak
+
+# Salidas de ejecución locales
+*.pid
+
+# Archivos de PHP locales
+.phpunit.result.cache
+
+# Archivos de configuración local
+.env
+.env.*
+
+# Directorios generados por servidores
+node_modules/
+
+# Archivos de respaldo
+*.bak
