@@ -3,6 +3,7 @@ declare(strict_types=1);
 require_once 'config.php';
 require_once 'src/services/VentaService.php';
 require_once 'src/services/ProveedorService.php';
+require_once 'includes/header.php';
 
 if (empty($_SESSION['admin_autenticado'])) {
     header('Location: login.php');
@@ -19,29 +20,11 @@ foreach ($proveedorService->listarProveedores() as $proveedor) {
 }
 
 $sessionUser = $_SESSION['usuario_nombre'] ?? 'Administrador';
+$title = 'Ventas';
+$activePage = 'ventas';
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventas - Portal Administrativo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body class="bg-light">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="ventas.php">Portal Admin</a>
-        <div class="d-flex align-items-center">
-            <span class="navbar-text text-white me-3">Hola, <?= htmlspecialchars($sessionUser) ?></span>
-            <a class="btn btn-outline-light btn-sm" href="login.php?logout=1">Cerrar sesión</a>
-        </div>
-    </div>
-</nav>
-
-<div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
+<div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <h1 class="h3">Consulta de Ventas</h1>
             <p class="text-muted">Listado de facturas generadas y detalles de ventas.</p>
@@ -99,6 +82,4 @@ $sessionUser = $_SESSION['usuario_nombre'] ?? 'Administrador';
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<?php require_once 'includes/footer.php'; ?>

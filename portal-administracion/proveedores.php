@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require_once 'config.php';
 require_once 'src/services/ProveedorService.php';
+require_once 'includes/header.php';
 
 if (empty($_SESSION['admin_autenticado'])) {
     header('Location: login.php');
@@ -41,29 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $sessionUser = $_SESSION['usuario_nombre'] ?? 'Administrador';
+$title = 'Proveedores';
+$activePage = 'proveedores';
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proveedores - Portal Administrativo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body class="bg-light">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="proveedores.php">Portal Admin</a>
-        <div class="d-flex align-items-center">
-            <span class="navbar-text text-white me-3">Hola, <?= htmlspecialchars($sessionUser) ?></span>
-            <a class="btn btn-outline-light btn-sm" href="login.php?logout=1">Cerrar sesión</a>
-        </div>
-    </div>
-</nav>
-
-<div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
+<div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="h3">Gestión de Proveedores</h1>
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalProveedor">Nuevo Proveedor</button>
     </div>
@@ -102,6 +85,8 @@ $sessionUser = $_SESSION['usuario_nombre'] ?? 'Administrador';
         </table>
     </div>
 </div>
+
+<?php require_once 'includes/footer.php'; ?>
 
 <div class="modal fade" id="modalProveedor" tabindex="-1" aria-labelledby="modalProveedorLabel" aria-hidden="true">
     <div class="modal-dialog">
