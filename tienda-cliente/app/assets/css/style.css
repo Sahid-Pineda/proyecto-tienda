@@ -1,0 +1,737 @@
+/* ============================================================
+   VÉRTICE DEPORTES — Sistema de diseño
+   Concepto: marcador electrónico de estadio nocturno.
+   Fondo azul-grafito profundo, acento ámbar (medalla / marcador),
+   tipografía condensada de póster deportivo + mono para precios
+   (como los dígitos de un scoreboard). Motivo firma: franja
+   diagonal ámbar usada en logo, títulos y esquinas de tarjetas.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  --bg: #0f1622;
+  --bg-elev: #141d2b;
+  --bg-card: #1a2534;
+  --line: #263447;
+  --accent: #ffb800;
+  --accent-ink: #0f1622;
+  --accent-soft: #ffd873;
+  --cyan: #4dd8e0;
+  --text: #f2f5f9;
+  --text-muted: #8b98ac;
+  --danger: #ff5c6c;
+  --success: #3ed598;
+
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --radius: 6px;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.contenedor {
+  width: min(1180px, 92vw);
+  margin-inline: auto;
+}
+
+/* ---------- Marca / firma diagonal ---------- */
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
+.marca .corte {
+  width: 10px;
+  height: 26px;
+  background: var(--accent);
+  transform: skewX(-18deg);
+  flex-shrink: 0;
+}
+
+/* ---------- Barra superior ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(15, 22, 34, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.85rem;
+  gap: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-carrito {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.nav-carrito:hover {
+  border-color: var(--accent);
+}
+
+.badge-cantidad {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  min-width: 1.4em;
+  text-align: center;
+}
+
+.nav-usuario {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.nav-usuario a,
+.nav-usuario button.link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding-block: 3.4rem 2.6rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, transparent 46%, rgba(255, 184, 0, 0.08) 46.5%, transparent 47%),
+    radial-gradient(ellipse at top right, rgba(255, 184, 0, 0.08), transparent 55%);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.hero h1::after {
+  content: '';
+  display: block;
+  width: 92px;
+  height: 8px;
+  background: var(--accent);
+  transform: skewX(-18deg);
+  margin-top: 0.6rem;
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 46ch;
+  font-size: 1.02rem;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primario {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn-primario:hover {
+  background: var(--accent-soft);
+}
+
+.btn-primario:disabled {
+  background: var(--line);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.btn-secundario:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-peligro {
+  background: transparent;
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btn-peligro:hover {
+  background: var(--danger);
+  color: var(--bg);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Filtros de catálogo ---------- */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  padding-block: 1.6rem 1.2rem;
+}
+
+.pildora {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-elev);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pildora:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.pildora.activa {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.buscador {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.9rem;
+  min-width: 220px;
+}
+
+.buscador input {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  width: 100%;
+}
+
+.buscador input:focus {
+  outline: none;
+}
+
+/* ---------- Grid de productos ---------- */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.1rem;
+  padding-block: 0.5rem 3rem;
+}
+
+.card-producto {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  position: relative;
+}
+
+.card-producto:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card-producto .etiqueta-categoria {
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem 0.25rem 0.8rem;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+}
+
+.card-producto .imagen {
+  aspect-ratio: 4 / 3;
+  background: var(--bg-elev);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-producto .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-producto .cuerpo {
+  padding: 0.9rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.card-producto h3 {
+  font-size: 0.98rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.card-producto .descripcion-corta {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin: 0;
+  flex: 1;
+}
+
+.card-producto .fila-precio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+}
+
+.precio {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.stock-tag {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--success);
+}
+
+.stock-tag.agotado {
+  color: var(--danger);
+}
+
+.card-producto .btn {
+  margin-top: 0.6rem;
+}
+
+.vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+/* ---------- Formularios ---------- */
+.panel {
+  max-width: 440px;
+  margin: 3rem auto;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.panel h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin: 0 0 0.3rem;
+}
+
+.panel .subtitulo {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1.6rem;
+}
+
+.campo {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.campo label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.campo input,
+.campo textarea {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.8rem;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.enlace-secundario {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.enlace-secundario a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- Alertas / flash ---------- */
+.alerta {
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  margin-bottom: 1.1rem;
+  border: 1px solid transparent;
+}
+
+.alerta-exito {
+  background: rgba(62, 213, 152, 0.12);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.alerta-error {
+  background: rgba(255, 92, 108, 0.12);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.lista-errores {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+/* ---------- Carrito / checkout ---------- */
+.layout-carrito {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.6rem;
+  padding-block: 2rem 4rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .layout-carrito {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fila-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fila-item .info h4 {
+  margin: 0 0 0.2rem;
+  font-size: 0.94rem;
+}
+
+.fila-item .info .precio-unit {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.control-cantidad {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.control-cantidad button {
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.control-cantidad button:hover {
+  color: var(--accent);
+}
+
+.control-cantidad span {
+  width: 28px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.quitar-item {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.78rem;
+}
+
+.quitar-item:hover {
+  color: var(--danger);
+}
+
+.resumen {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  position: sticky;
+  top: 5.5rem;
+}
+
+.resumen h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+}
+
+.fila-resumen {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding-block: 0.4rem;
+  color: var(--text-muted);
+}
+
+.fila-resumen.total {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-top: 1px solid var(--line);
+  margin-top: 0.4rem;
+  padding-top: 0.8rem;
+}
+
+.fila-resumen .valor {
+  font-family: var(--font-mono);
+}
+
+/* ---------- Factura ---------- */
+.factura {
+  max-width: 640px;
+  margin: 3rem auto;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2.2rem;
+}
+
+.factura-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.factura-numero {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.factura-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.tabla-factura {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+.tabla-factura th {
+  text-align: left;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabla-factura td {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.tabla-factura td.num,
+.tabla-factura th.num {
+  text-align: right;
+  font-family: var(--font-mono);
+}
+
+.factura-totales {
+  margin-left: auto;
+  width: 240px;
+}
+
+.factura-nota {
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--line);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Footer ---------- */
+.pie {
+  border-top: 1px solid var(--line);
+  padding-block: 1.6rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.centrado {
+  text-align: center;
+  padding-block: 4rem;
+  color: var(--text-muted);
+}

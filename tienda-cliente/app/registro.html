@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear cuenta — Vértice Deportes</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="marca"><span class="corte"></span>VÉRTICE DEPORTES</a>
+    <div class="nav-links"><a href="index.html">Catálogo</a></div>
+    <div style="display:flex; align-items:center; gap:1rem">
+      <div class="nav-usuario" data-zona-usuario></div>
+      <a href="carrito.html" class="nav-carrito">🛒 <span class="badge-cantidad" data-badge-carrito>0</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="contenedor">
+  <section class="panel">
+    <h1>Crear cuenta</h1>
+    <p class="subtitulo">Regístrate para comprar y recibir tus pedidos a domicilio.</p>
+
+    <div class="alerta alerta-error" data-alerta hidden></div>
+
+    <form data-form-registro novalidate>
+      <div class="campo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required autocomplete="name">
+      </div>
+      <div class="campo">
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" required autocomplete="email">
+      </div>
+      <div class="campo">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required autocomplete="new-password" minlength="6">
+      </div>
+      <div class="campo">
+        <label for="direccion">Dirección</label>
+        <textarea id="direccion" name="direccion" rows="2" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primario btn-block">Crear cuenta</button>
+    </form>
+
+    <p class="enlace-secundario">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+  </section>
+</main>
+
+<footer class="pie">Proyecto Final · Paradigmas de Programación · UNAH 2026</footer>
+
+<script type="module" src="assets/js/pages/registro.js"></script>
+</body>
+</html>

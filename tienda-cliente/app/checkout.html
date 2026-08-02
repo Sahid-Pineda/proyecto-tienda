@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmar compra — Vértice Deportes</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="marca"><span class="corte"></span>VÉRTICE DEPORTES</a>
+    <div class="nav-links"><a href="index.html">Catálogo</a></div>
+    <div style="display:flex; align-items:center; gap:1rem">
+      <div class="nav-usuario" data-zona-usuario></div>
+      <a href="carrito.html" class="nav-carrito">🛒 <span class="badge-cantidad" data-badge-carrito>0</span></a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:2.2rem 1.6rem">
+  <div class="contenedor">
+    <p class="hero-eyebrow">Paso 2 de 2</p>
+    <h1 style="font-size:clamp(2rem,4vw,2.8rem)">CONFIRMAR COMPRA</h1>
+  </div>
+</header>
+
+<main class="contenedor">
+  <div class="layout-carrito">
+    <section>
+      <div class="alerta alerta-error" data-alerta hidden></div>
+
+      <form data-form-checkout novalidate>
+        <div class="campo">
+          <label style="flex-direction:row; align-items:center; gap:0.5rem; display:flex">
+            <input type="checkbox" id="entrega" data-check-entrega style="width:auto">
+            Quiero entrega a domicilio
+          </label>
+        </div>
+
+        <div class="campo" data-campo-direccion>
+          <label for="direccion">Dirección de entrega</label>
+          <textarea id="direccion" name="direccion" rows="3" placeholder="Barrio, calle, referencia..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primario btn-block">Confirmar compra</button>
+      </form>
+    </section>
+
+    <aside class="resumen">
+      <h2>Resumen del pedido</h2>
+      <div data-resumen-checkout></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="pie">Proyecto Final · Paradigmas de Programación · UNAH 2026 · Compra simulada, sin pasarela de pago real.</footer>
+
+<script type="module" src="assets/js/pages/checkout.js"></script>
+</body>
+</html>

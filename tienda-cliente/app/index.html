@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vértice Deportes — Catálogo</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="marca"><span class="corte"></span>VÉRTICE DEPORTES</a>
+    <div class="nav-links">
+      <a href="index.html">Catálogo</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:1rem">
+      <div class="nav-usuario" data-zona-usuario></div>
+      <a href="carrito.html" class="nav-carrito">
+        🛒 Carrito <span class="badge-cantidad" data-badge-carrito>0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="contenedor">
+    <p class="hero-eyebrow">Equipo &amp; indumentaria deportiva</p>
+    <h1>JUEGA<br>AL MÁXIMO NIVEL</h1>
+    <p>Artículos deportivos seleccionados para entrenar, competir y superar tu marca. Envío a domicilio disponible.</p>
+  </div>
+</header>
+
+<main class="contenedor">
+  <div id="alerta-flash"></div>
+
+  <div class="filtros">
+    <div data-pildoras-categoria style="display:flex; gap:0.6rem; flex-wrap:wrap"></div>
+    <div class="buscador">
+      <span>🔍</span>
+      <input type="text" placeholder="Buscar artículos…" data-input-busqueda>
+    </div>
+  </div>
+
+  <div class="grid-productos" data-grid-productos>
+    <div class="vacio">Cargando catálogo…</div>
+  </div>
+</main>
+
+<footer class="pie">Proyecto Final · Paradigmas de Programación · UNAH 2026</footer>
+
+<script type="module">
+  import { Flash } from './assets/js/util/Flash.js';
+  Flash.renderInto(document.getElementById('alerta-flash'));
+</script>
+<script type="module" src="assets/js/pages/catalogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factura — Vértice Deportes</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="contenedor nav-inner">
+    <a href="index.html" class="marca"><span class="corte"></span>VÉRTICE DEPORTES</a>
+    <div class="nav-links"><a href="index.html">Catálogo</a></div>
+    <div style="display:flex; align-items:center; gap:1rem">
+      <div class="nav-usuario" data-zona-usuario></div>
+      <a href="carrito.html" class="nav-carrito">🛒 <span class="badge-cantidad" data-badge-carrito>0</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="contenedor">
+  <div style="text-align:center; padding-top:2rem">
+    <p class="hero-eyebrow">¡Compra confirmada!</p>
+  </div>
+  <section class="factura" data-factura></section>
+  <div style="text-align:center; padding-bottom:3rem">
+    <a href="index.html" class="btn btn-secundario">Volver al catálogo</a>
+  </div>
+</main>
+
+<footer class="pie">Proyecto Final · Paradigmas de Programación · UNAH 2026</footer>
+
+<script type="module" src="assets/js/pages/factura.js"></script>
+</body>
+</html>
