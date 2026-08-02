@@ -1,0 +1,8 @@
+# Dependencias del portal administrativo
+# Este portal es una aplicación PHP que consume la API del backend.
+# No requiere dependencias de Composer ni paquetes de Python para funcionar.
+
+# Requisitos del sistema
+# - PHP 8.x con soporte para cURL
+# - Servidor web local (Apache, Nginx o PHP built-in)
+# - Python 3.11+ para ejecutar el backend FastAPI
